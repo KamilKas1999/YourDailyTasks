@@ -1,0 +1,14 @@
+.nav{
+    background-color: rgb(146, 174, 209);
+    height: 100%;
+    position: fixed;
+    width: 100px; 
+   
+    .nav-item{
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: large;
+        cursor: pointer;
+    }
+}
