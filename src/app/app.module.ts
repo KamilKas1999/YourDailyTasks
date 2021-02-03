@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
   import { NavbarComponent } from './navbar/navbar.component';
  import { MainPanelComponent } from './main-panel/main-panel.component';
 import { ItemComponent } from './main-panel/item/item.component';
+import { PaperDirective } from './main-panel/paper.directive';
+import { AddNewTaskComponent } from './main-panel/add-new-task/add-new-task.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ItemComponent } from './main-panel/item/item.component';
     ControlPanelComponent,
     NavbarComponent,
     MainPanelComponent,
-    ItemComponent
+    ItemComponent,
+    PaperDirective,
+    AddNewTaskComponent
   ],
   imports: [
     BrowserModule,

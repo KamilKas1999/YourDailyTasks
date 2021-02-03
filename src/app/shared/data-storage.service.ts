@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Todo } from './todo.model';
 
@@ -8,6 +8,7 @@ import { Todo } from './todo.model';
 export class DataStorageService {
   ingredientsChanged = new Subject<Todo[]>();
   todos: Todo[] = [];
+  @Output() isAddingNew = new Subject<boolean>();
 
   colors = [
     '#58FA58',
@@ -25,20 +26,31 @@ export class DataStorageService {
     '#D0F5A9',
     '#819FF7',
     '#F7BE81',
-    '#F5A9E1'
+    '#F5A9E1',
   ];
 
   constructor() {}
 
-  add(todo: Todo) {
-    this.todos.push(todo);
+  startAdding() {
+    //this.todos.push(todo);
+    this.isAddingNew.next(true);
+    console.log(this.isAddingNew);
+  }
+
+  add(name: string, description : string, date: Date) {
+    this.todos.push({name : name, description: description, color: this.randomColor(), date : date });
+    this.stopAdding();
+  }
+
+  stopAdding() {
+    this.isAddingNew.next(false);
   }
 
   console() {
     console.log(this.todos);
   }
 
-  randomColor(): string {
+  private randomColor(): string {
     const mat = Math.floor(Math.random() * this.colors.length);
     console.log(mat);
     return this.colors[mat];

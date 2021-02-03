@@ -1,0 +1,22 @@
+<div class="backdrop">
+  <div id="addPanel">
+    <form #auth="ngForm" (ngSubmit)="onSubmit(auth)">
+      <div class="form-group">
+        <label for="name">Tekst</label>
+        <input type="text" class="form-control" name="name" ngModel required />
+      </div>
+      <div class="form-group">
+        <label for="date">Data</label>
+        <input type="date" class="form-control" name="date" ngModel required />
+      </div>
+      <div class="form-group">
+        <label for="description">Opis</label>
+        <input type="text" class="form-control" name="description" ngModel />
+      </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-success" [disabled] = "!auth.valid">Dodaj</button> | 
+        <button type="button" class="btn btn-danger" (click) = "onClose()">Anuluj</button>
+      </div>
+    </form>
+  </div>
+</div>

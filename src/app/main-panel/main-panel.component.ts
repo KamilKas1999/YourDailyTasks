@@ -10,11 +10,15 @@ import { Todo } from '../shared/todo.model';
 export class MainPanelComponent implements OnInit {
 
   todos : Todo[];
+  isAddingNewTodo = false;
 
   constructor(private data : DataStorageService) { }
 
-  ngOnInit(): void {
-    this.todos = this.data.todos
+  ngOnInit(){
+    this.todos = this.data.todos;
+    this.data.isAddingNew.subscribe(isAdding => {
+      this.isAddingNewTodo = isAdding;
+    });
   }
 
 }

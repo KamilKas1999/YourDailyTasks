@@ -7,15 +7,10 @@ import { Todo } from 'src/app/shared/todo.model';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss'],
 })
-export class ItemComponent implements OnInit, AfterViewInit {
+export class ItemComponent implements OnInit {
   @Input() todo: Todo;
   @Input() id: number;
   constructor() {}
-
-  ngAfterViewInit(): void {
-    const item = document.getElementById(this.id.toString());
-    item.style.backgroundColor = this.todo.color;
-  }
 
   ngOnInit(): void {}
 }

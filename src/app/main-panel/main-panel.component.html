@@ -1,1 +1,5 @@
-<div *ngFor="let item of todos; let i = index"><app-item [todo] = "item" [id] = "i"></app-item></div>
+<div *ngFor="let item of todos; let i = index" style="text-align: center">
+  <app-item [todo]="item" [id]="i"></app-item>
+</div>
+
+<app-add-new-task *ngIf ="isAddingNewTodo"></app-add-new-task>

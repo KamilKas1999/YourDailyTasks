@@ -1,1 +1,10 @@
-<div id={{id}} class="item">{{ todo.description }}</div>
+<div appPaper [color]="todo.color" class="item">
+ 
+  <div class="header" >
+    <h3>{{ todo.name }}</h3> 
+  </div>
+
+  <h4>{{ todo.date | date }}</h4>
+  <p>{{ todo.description }}</p>
+  <span><button>X</button></span>
+</div>
