@@ -1,5 +1,6 @@
 import { ImplicitReceiver } from '@angular/compiler';
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Todo } from 'src/app/shared/todo.model';
 
 @Component({
@@ -10,7 +11,11 @@ import { Todo } from 'src/app/shared/todo.model';
 export class ItemComponent implements OnInit {
   @Input() todo: Todo;
   @Input() id: number;
-  constructor() {}
+  constructor(private data: DataStorageService) {}
 
   ngOnInit(): void {}
+
+  onRemove() {
+    this.data.remove(this.id);
+  }
 }

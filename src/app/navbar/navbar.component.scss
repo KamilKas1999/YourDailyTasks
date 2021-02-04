@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+
 .navbar{
-    background-color: #777777;
+    background-color: #2f5d72ca;
+}
+
+.navbar-brand{
+    color: rgba(72, 168, 223, 0.986);
+    font-weight: 400;
+    font-family: 'Fredoka One', cursive;
+}
+
+.nav-item{
+    margin-left: 10px;
+    font-weight: 500;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-width: 0px;
+    border-bottom-width: 2px;
+    border-color: #f6f6f66e;
+    border-style: solid;
+    padding: 0px;
+    cursor: pointer;
 }

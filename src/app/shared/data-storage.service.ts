@@ -55,4 +55,8 @@ export class DataStorageService {
     console.log(mat);
     return this.colors[mat];
   }
+
+  remove(id : number){
+    this.todos.splice(id,1);
+  }
 }

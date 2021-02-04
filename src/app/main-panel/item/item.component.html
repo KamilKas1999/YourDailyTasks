@@ -4,7 +4,7 @@
     <h3>{{ todo.name }}</h3> 
   </div>
 
-  <h4>{{ todo.date | date }}</h4>
+  <h5>{{ todo.date | datePipe }}</h5>
   <p>{{ todo.description }}</p>
-  <span><button>X</button></span>
+  <span><button (click)="onRemove()">X</button></span>
 </div>

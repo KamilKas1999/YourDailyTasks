@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ItemComponent } from './main-panel/item/item.component';
 import { PaperDirective } from './main-panel/paper.directive';
 import { AddNewTaskComponent } from './main-panel/add-new-task/add-new-task.component';
+import { DatePipePipe } from './shared/date-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AddNewTaskComponent } from './main-panel/add-new-task/add-new-task.comp
     MainPanelComponent,
     ItemComponent,
     PaperDirective,
-    AddNewTaskComponent
+    AddNewTaskComponent,
+    DatePipePipe
   ],
   imports: [
     BrowserModule,

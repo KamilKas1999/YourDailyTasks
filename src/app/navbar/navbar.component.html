@@ -1,9 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light  fixed-top">
-  <a class="navbar-brand" (click) = "onNavigate()">YourDailyTask </a>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <a class="navbar-brand" (click)="onNavigate()">YourDailyTask </a>
 
-  <div class="navbar-nav" style="margin-left: auto">
-    <a class="nav-item nav-link active" href="#" *ngIf="isLogin" (click) = "onLogout()"
-      >Wyloguj <span class="sr-only">(current)</span></a
-    >
+  
+  <div class="navbar-nav">
+    <li class = "nav-item" *ngIf="isLogin" (click) = onAdd()>Dodaj nowe zadanie</li> 
   </div>
+
+        <div class="navbar-nav" style="margin-left: auto">
+          <a
+            class="nav-item nav-link active"
+            *ngIf="isLogin"
+            (click)="onLogout()"
+            >Wyloguj <span class="sr-only">(current)</span></a
+          >
+
+
+        </div>
+
+
+  
+
+
+
+
+
+
+
 </nav>
