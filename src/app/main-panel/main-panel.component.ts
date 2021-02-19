@@ -19,6 +19,13 @@ export class MainPanelComponent implements OnInit {
     this.data.isAddingNew.subscribe(isAdding => {
       this.isAddingNewTodo = isAdding;
     });
+    this.data.todosChange.subscribe(todos => {
+      this.todos = todos;
+    })
+  }
+
+  onAdd() {
+    this.data.startAdding();
   }
 
 }

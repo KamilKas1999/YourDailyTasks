@@ -1,24 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-
-
-.navbar{
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+.brand {
     background-color: #2f5d72ca;
-}
-
-.navbar-brand{
+    width: 100%;
     color: rgba(72, 168, 223, 0.986);
-    font-weight: 400;
-    font-family: 'Fredoka One', cursive;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Fredoka One", cursive;
+    text-align: center;
+  }
+
+.myNavbar {
+  background-color: #2f5d72ca;
+  width: 100%;
+  overflow: hidden;
 }
 
-.nav-item{
-    margin-left: 10px;
-    font-weight: 500;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    border-width: 0px;
-    border-bottom-width: 2px;
-    border-color: #f6f6f66e;
-    border-style: solid;
-    padding: 0px;
-    cursor: pointer;
+
+.links{
+a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
 }
+
+a:hover {
+    background-color: rgb(185, 77, 162);
+  }
+}
+.logout{
+    a{
+        position: absolute;
+        right: 0;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        border-bottom: 3px solid transparent;
+    }
+    a:hover {
+        color: rgb(255, 30, 0);
+      }
+    
+}
+
+
+// .links {
+//   margin-top: 8px;
+//   a {
+//     margin-top: 8px;
+//     margin-left: 16px;
+//   }
+// }
+
+// .logout {
+
+//   a {
+//     margin-top: 8px;
+//     margin-right: 16px;
+//   }
+// }
+
+// a {
+//   color: black;
+//   text-decoration: none;
+//   cursor: pointer;
+//   font-size: 20px;
+// }
+
+// .nav-item{
+//     margin-left: 10px;
+//     font-weight: 500;
+//     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+//     padding: 10px 0;
+//     cursor: pointer;
+//     transition: 1s ease;
+// }
+
+// .nav-item:hover{
+//     transform: scale(1.1);
+//     color: black;
+// }

@@ -33,8 +33,5 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  onAdd() {
-    //this.data.add({ description: 'tets', color : this.data.randomColor() });
-    this.data.startAdding();
-  }
+
 }

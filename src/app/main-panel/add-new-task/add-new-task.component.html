@@ -14,8 +14,8 @@
         <input type="text" class="form-control" name="description" ngModel />
       </div>
       <div class="buttons">
-        <button type="submit" class="btn btn-success" [disabled] = "!auth.valid">Dodaj</button> | 
-        <button type="button" class="btn btn-danger" (click) = "onClose()">Anuluj</button>
+        <button type="submit" id="add" [disabled] = "!auth.valid">Dodaj</button>  
+        <button type="button" id="cancel" (click) = "onClose()">Anuluj</button>
       </div>
     </form>
   </div>

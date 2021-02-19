@@ -4,11 +4,11 @@ import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Todo } from 'src/app/shared/todo.model';
 
 @Component({
-  selector: 'app-item',
+  selector: 'app-finished-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss'],
 })
-export class ItemComponent implements OnInit {
+export class FinishedItemComponent implements OnInit {
   @Input() todo: Todo;
   @Input() id: number;
   constructor(private data: DataStorageService) {}
@@ -16,10 +16,6 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {}
 
   onRemove() {
-    this.data.remove(this.id);
-  }
-
-  onFinished(){
-    this.data.movetoFinished(this.id);
+    //this.data.remove(this.id);
   }
 }

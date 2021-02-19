@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, Output } from '@angular/core';
 import { Subject } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 import { Todo } from './todo.model';
 
 @Injectable({
@@ -8,7 +10,10 @@ import { Todo } from './todo.model';
 export class DataStorageService {
   ingredientsChanged = new Subject<Todo[]>();
   todos: Todo[] = [];
-  @Output() isAddingNew = new Subject<boolean>();
+  finishedTodos: Todo[] = [];
+  todosChange = new Subject<Todo[]>();
+  finishedChange = new Subject<Todo[]>();
+  isAddingNew = new Subject<boolean>();
 
   colors = [
     '#58FA58',
@@ -29,25 +34,34 @@ export class DataStorageService {
     '#F5A9E1',
   ];
 
-  constructor() {}
-
-  startAdding() {
-    //this.todos.push(todo);
-    this.isAddingNew.next(true);
-    console.log(this.isAddingNew);
+  constructor(private http: HttpClient, private authService: AuthService) {
+    this.authService.user.subscribe((user) => {
+      if (user) {
+        let id = user.id;
+        this.getTodos(id);
+        this.getFinishedTodos(id);
+      }
+    });
   }
 
-  add(name: string, description : string, date: Date) {
-    this.todos.push({name : name, description: description, color: this.randomColor(), date : date });
+  startAdding() {
+    this.isAddingNew.next(true);
+  }
+
+  add(name: string, description: string, date: Date) {
+    console.log(name, description, date);
+    this.todos.push({
+      name: name,
+      description: description,
+      color: this.randomColor(),
+      date: date,
+    });
     this.stopAdding();
+    this.putTodos();
   }
 
   stopAdding() {
     this.isAddingNew.next(false);
-  }
-
-  console() {
-    console.log(this.todos);
   }
 
   private randomColor(): string {
@@ -56,7 +70,71 @@ export class DataStorageService {
     return this.colors[mat];
   }
 
-  remove(id : number){
-    this.todos.splice(id,1);
+  remove(id: number) {
+    this.todos.splice(id, 1);
+    this.putTodos();
+  }
+
+  movetoFinished(id: number){
+    const todo = this.todos.splice(id, 1);
+    this.finishedTodos.push(todo[0]);
+    this.finishedChange.next(this.finishedTodos);
+    this.putFinishedTodos();
+    console.log(this.finishedTodos)
+  }
+
+  putTodos() {
+    let id = '';
+    this.authService.user.subscribe((user) => (id = user.id));
+    this.http
+      .put(
+        'https://yourdailytasks-default-rtdb.firebaseio.com/' +
+          id +
+          '/Actual.json',
+        this.todos
+      )
+      .subscribe(() => {});
+  }
+
+  getTodos(id: String) {
+    this.http
+      .get<Todo[]>(
+        'https://yourdailytasks-default-rtdb.firebaseio.com/' +
+          id +
+          '/Actual.json'
+      )
+      .subscribe((data) => {
+        if (data) {
+          this.todos = data;
+          this.todosChange.next(this.todos);
+        }
+      });
+  }
+
+  putFinishedTodos() {
+    let id = '';
+    this.authService.user.subscribe((user) => (id = user.id));
+    this.http
+      .put(
+        'https://yourdailytasks-default-rtdb.firebaseio.com/' +
+          id +
+          '/Finished.json',
+        this.finishedTodos
+      )
+      .subscribe(() => {});
+  }
+  getFinishedTodos(id: String) {
+    this.http
+      .get<Todo[]>(
+        'https://yourdailytasks-default-rtdb.firebaseio.com/' +
+          id +
+          '/Finished.json'
+      )
+      .subscribe((data) => {
+        if (data) {
+          this.finishedTodos = data;
+          this.finishedChange.next(this.finishedTodos);
+        }
+      });
   }
 }

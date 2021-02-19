@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { DataStorageService } from '../shared/data-storage.service';
 import { User } from './user.model';
 
 export interface AuthResponseData {
@@ -71,6 +72,7 @@ export class AuthService {
           );
         })
       );
+      
   }
 
   private handleAuthentication(

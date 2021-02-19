@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap');
+
+.all{
+ width: 25%;
+ text-align: center;
+ padding: 10px;
+ float:left;
+
+}
+
+.item{
+  height: 250px;
+  width: 100%;
+  //float: left;
+  border-color: black;
+  background-size: 10px;
+  border-style: solid;
+  position: relative;
+  transition: 0.5s ease;
+ 
+  font-family: 'Ubuntu', sans-serif;
+    color: #444444;
+  
+
+
+  span {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    button{
+        color: red;
+        font-size:x-large;
+        font-family: sans-serif;
+        border-style: solid;
+        border-color: black;
+        border-radius: 10px;
+    }
+  }
+}
+
+.item:hover{
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 1000px) {
+  .all{
+    width: 100%;
+    padding: 20px;
+  }
+}

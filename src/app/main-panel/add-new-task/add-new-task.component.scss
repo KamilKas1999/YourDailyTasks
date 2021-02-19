@@ -15,6 +15,26 @@
   width: 60vw;
   padding: 16px;
   z-index: 100;
-  background: white;
+  background-color: rgb(136, 136, 136);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+button{
+  background-color: #424242;
+  border: 2px solid black;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 130px;
+  transition: 1s ease;
+}
+
+#add:hover{
+  background-color: #60cf73;
+}
+
+#cancel:hover{
+  background-color: #da6565;
 }
